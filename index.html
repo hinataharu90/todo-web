@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Task List</title>
+</head>
+
+<body>
+    <form onsubmit="AddData(event)" id="form">
+        <h2>Just do it.</h2>
+       </div>
+        <div class="form-group">
+            <input type="text" id="task" placeholder="Add a task.">
+            <button type="submit" class="button-submit">I Got This!</button>
+        </div>
+    </form>
+    <div id="mostrar-fecha">
+        <p class="fecha">
+            <script>
+                var f = new Date();
+                document.write(f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear() + ' ,');
+            </script>
+        </p>
+        <p id="clock">
+            <script>
+                function displayTime() {
+                    var currentDate = new Date();
+                    var hours = currentDate.getHours();
+                    var minutes = currentDate.getMinutes();
+                    var seconds = currentDate.getSeconds();
+                    var ampm = hours >= 12 ? 'pm' : 'am';
+                    hours = hours % 12;
+                    hours = hours ? hours : 12; // the hour '0' should be '12'
+                    minutes = minutes < 10 ? "0" + minutes : minutes;
+                    seconds = seconds < 10 ? "0" + seconds : seconds;
+                    var timeString = hours + ":" + minutes + ":" + seconds + ' ' + ampm;
+                    document.getElementById("clock").innerHTML = timeString;
+                }
+                setInterval(displayTime, 1000); // update every second
+            </script>
+        </p>
+    </div>
+    <div id="general-container" class="task-container">
+
+    </div>
+    <script src="App.js"></script>
+</body>
+
+</html>
