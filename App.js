@@ -20,22 +20,26 @@ function ReadData() {
         html += `<div  class="task-container">`;
         if (element.finalizada == false) {
             html += `<input type="text" readonly id="task-id${index}" class="task-input-container" value="${element.taskDescription}">`
-            html += `<button class="btn-input-task" onclick="DeleteTask(${index})">`
-            html += `<img src="icons8-eliminar-parakeet-color-32.png" alt="icon-delete">`;
-            html += `</button>`
+            
             html += `<button class="show-checkbox" id="checkbox-finish"  onclick="FinishTask(${index})">`
-            html += `<img src="icons8-checkbox-blue-ui-32.png" alt="check-desmarcado">`
+            html += `<img src="checkbox_desmarcado 30px.png" alt="check-desmarcado">`
             html += `</button>`
+
         } else {
             html += `<input type="text" readonly id="task-id${index}" class="task-input-container" style="text-decoration: line-through; color:black;" value="${element.taskDescription}">`
-            html += `<button class="btn-input-task" onclick="DeleteTask(${index})">`
-            html += `<img src="icons8-eliminar-parakeet-color-32.png" alt="icon-delete">`;
-            html += `</button>`
+            
             html += `<button class="show-checkbox" id="checkbox-finish"  onclick="FinishTask(${index})">`
-            html += `<img src="icons8-checkbox-30.png" alt="check-marcado">`
+            html += `<img src="checkbox_mrcado 30px.png" alt="check-marcado">`
             html += `</button>`
+
         }
-html += `</div>`
+        html += `</div>`
+        html+=`<div class="div-second-input">`
+        html+=`<input type="text" class="input-button-delete" readonly >`
+        html += `<button class="btn-input-task" onclick="DeleteTask(${index})">`
+        html += `<img src="icons8-eliminar-parakeet-color-32.png" alt="icon-delete">`;
+        html += `</button>`
+        html+=`</div>`
     })
     document.querySelector('#general-container').innerHTML = html;
 }
@@ -75,17 +79,13 @@ function DeleteTask(index) {
 }
 
 function FinishTask(index) {
-    
+
     let listTask;
     if (localStorage.getItem('listTask') == null) {
         listTask = [];
     } else {
         listTask = JSON.parse(localStorage.getItem('listTask'));
-    }
-    if (listTask[index].finalizada == false) {
-        listTask[index].finalizada = true;
-    } else if (listTask[index].finalizada == true) {
-        listTask[index].finalizada = false;
+        listTask[index].finalizada=!listTask[index].finalizada;
     }
     localStorage.setItem('listTask', JSON.stringify(listTask));
     ReadData();

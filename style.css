@@ -17,6 +17,7 @@ h2 {
 }
 
 #task {
+    border: 0;
     border-radius: 20px 0px 0px 20px;
     padding: 10px;
     width: 40vw;
@@ -35,6 +36,7 @@ h2 {
    margin-top: 0;
    margin-bottom: 0;
     height: 43px;
+    border: 0;
     border-radius: 0px 20px 20px 0px;
     background-color: darkslategray;
     color: white;
@@ -50,15 +52,16 @@ h2 {
     margin-left: 40vw;
     display: flex;
 }
-#task-container{
-    text-align: center;
-}
+
 .task-input-container{
-    display: flex;
+    /* display: flex; */
     /* text-decoration: line-through; */
-    border-radius: 20px;
-    padding: 10px;
+    border: 0;
+    border-right: none;
+    border-radius: 20px 0 0 20px;
+    /* padding: 10px; */
     width: 50vw;
+    height: 50px;
     background-color: rgb(99, 161, 243);
     margin-right: 0;
     margin-top: 10px;
@@ -72,22 +75,54 @@ h2 {
 }
 .btn-input-task{
      position: absolute; 
-    top: 25%;
-    right: 0%; 
-    height: 75%;
+    top: 0;
+    right: 0; 
+    border: 0;
+    bottom: 0;
+    width: 50px;
+    height: 50px;
     border-radius: 100%;
     background-color: darkslategray;
+    cursor: pointer;  
 }
 .show-checkbox{
     position: absolute;
-   
-    top: 25%;
-    right: 10%;
-    height: 75%;
+    top: 10px;
+    right: 0;
+    bottom: 0;
+    height: 50px;
+    width: 50px;
     background-color: darkslategray;
+    border: 0;
     border-radius: 100%;
+    cursor: pointer;
 }
-.checkbox-finalizada{
+/* .checkbox-finalizada{
     border-radius: 100%;
     background-color: darkslategray;
+} */
+.div-second-input{
+     position: absolute;
+     display: inline-block; 
+     
+     width: 50px;
+     height: 50px;
+     margin-top: 10px;
+     }
+     .input-button-delete{
+        /* position: relative; */
+        
+        left: 0;
+        top: 0;
+        bottom: 0;
+        height: 50px;
+        width: 50px;
+        border: 0;
+        border-left: none;
+      
+       background-color: rgb(99, 161, 243);
 }
+     
+     input:focus{
+        outline: 0;
+     }
